@@ -1,0 +1,67 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PianoProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/PianoProject_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Pause Piano - Backend" />
+          <element id="jpa-descriptors" facet="PianoProject/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.25" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
+          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.0" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:3.0.0" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-core:3.0.0" />
+          <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.3.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.1" />
+          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.3" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2.external:jakarta.inject:2.5.0" />
+          <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.0.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:2.29" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.29" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-common:2.29" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:2.29" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-client:2.29" />
+          <element id="library" level="project" name="Maven: jakarta.ws.rs:jakarta.ws.rs-api:2.1.5" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.inject:jersey-hk2:2.29" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-locator:2.5.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.5.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-api:2.5.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-utils:2.5.0" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.22.0-CR2" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.media:jersey-media-json-jackson:2.29" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.ext:jersey-entity-filtering:2.29" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.9" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.9" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.9" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.9.9" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.media:jersey-media-jaxb:2.29" />
+          <element id="library" level="project" name="Maven: jakarta.xml.ws:jakarta.xml.ws-api:2.3.3" />
+          <element id="library" level="project" name="Maven: jakarta.xml.soap:jakarta.xml.soap-api:1.4.2" />
+          <element id="library" level="project" name="Maven: jakarta.jws:jakarta.jws-api:2.1.0" />
+          <element id="library" level="project" name="Maven: com.sun.xml.ws:jaxws-rt:2.3.3" />
+          <element id="library" level="project" name="Maven: com.sun.xml.ws:policy:2.7.10" />
+          <element id="library" level="project" name="Maven: org.glassfish.ha:ha-api:3.1.12" />
+          <element id="library" level="project" name="Maven: org.glassfish.external:management-api:3.2.2" />
+          <element id="library" level="project" name="Maven: org.glassfish.gmbal:gmbal:4.0.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.pfl:pfl-tf:4.1.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.pfl:pfl-basic:4.1.0" />
+          <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.8.3" />
+          <element id="library" level="project" name="Maven: com.sun.xml.stream.buffer:streambuffer:1.5.9" />
+          <element id="library" level="project" name="Maven: org.jvnet.mimepull:mimepull:1.9.13" />
+          <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.18" />
+          <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:1.2.2" />
+          <element id="library" level="project" name="Maven: com.sun.xml.messaging.saaj:saaj-impl:1.5.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:5.1.0" />
+          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:4.1" />
+          <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:1.2.2" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Pause Piano - Backend/web/Web" />
+    </root>
+  </artifact>
+</component>
