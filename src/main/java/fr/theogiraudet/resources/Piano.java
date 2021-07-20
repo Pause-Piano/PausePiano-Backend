@@ -9,6 +9,7 @@ import java.net.URL;
 @XmlRootElement(name="piano")
 public class Piano {
 
+    private int id;
     private double latitude;
     private double longitude;
     private byte rate;
@@ -102,6 +103,20 @@ public class Piano {
      */
     public void setImage(URL image) {
         this.image = image;
+    }
+
+    /**
+     * @return l'ID du piano
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id l'ID du piano
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
