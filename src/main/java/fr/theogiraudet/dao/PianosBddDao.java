@@ -3,6 +3,7 @@ package fr.theogiraudet.dao;
 import fr.theogiraudet.PropertiesLoader;
 import fr.theogiraudet.resources.Piano;
 import fr.theogiraudet.resources.PianoData;
+import fr.theogiraudet.resources.PianoImpl;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -133,6 +134,7 @@ public class PianosBddDao implements PianosDao {
     /**
      * Vide la table de pianos
      */
+    @Override
     public void clearTable() {
         final var query = "TRUNCATE TABLE piano_project.pianos";
         try(final var statement = connection.createStatement()) {
@@ -142,6 +144,25 @@ public class PianosBddDao implements PianosDao {
         }
     }
 
+
+    /**
+     * @param id un ID
+     * @return le piano dont l'ID est <i>id</i> si il existe, Optional.empty sinon
+     */
+    @Override
+    public Optional<Piano> getPiano(int id) {
+        final var query = "SELECT id, ST_X(coordinates) as x, ST_Y(coordinates) as y, type, accessibility, rate, image FROM piano_project.pianos WHERE id = ?;";
+        try(final var statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            final var result = statement.executeQuery();
+            return Optional.ofNullable(!result.next() ? null : toPiano(result));
+        } catch (SQLException | MalformedURLException throwables) {
+            throwables.printStackTrace();
+            return Optional.empty();
+        }
+    }
+
+
     /**
      * @param result un ResultSet
      * @return le premier Piano du ResultSet passé en paramètre
@@ -149,7 +170,7 @@ public class PianosBddDao implements PianosDao {
      * @throws MalformedURLException
      */
     private Piano toPiano(ResultSet result) throws SQLException, MalformedURLException {
-        final var piano = new Piano();
+        final Piano piano = new PianoImpl();
         piano.setId(result.getInt("id"));
         piano.setLatitude(result.getDouble("y"));
         piano.setLongitude(result.getDouble("x"));

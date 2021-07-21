@@ -1,128 +1,87 @@
 package fr.theogiraudet.resources;
 
-import jakarta.xml.bind.annotation.XmlRootElement;
 import java.net.URL;
 
-/**
- * Classe représentant un Piano
- */
-@XmlRootElement(name="piano")
-public class Piano {
-
-    private int id;
-    private double latitude;
-    private double longitude;
-    private byte rate;
-    private Accessibility accessibility;
-    private Type type;
-    private URL image;
+public interface Piano {
 
     /**
      * @return la latitude du piano
      */
-    public double getLatitude() {
-        return latitude;
-    }
+    double getLatitude();
 
     /**
+     * @param longitude la longitude du piano
      * @param latitude la latitude du piano
      */
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
+    void setLocation(double longitude, double latitude);
 
     /**
      * @return la longitude du piano
      */
-    public double getLongitude() {
-        return longitude;
-    }
-
-    /**
-     * @param longitude la longitude du piano
-     */
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
+    double getLongitude();
 
     /**
      * @return la note du du piano, comprise entre 0 et 5
      */
-    public byte getRate() {
-        return rate;
-    }
+    byte getRate();
 
     /**
      * @param rate la note du piano, comprise entre 0 et 5
      * @throws IllegalArgumentException si <i>rate</i> n'est pas compris entre 0 (inclus) et 5 (inclus)
      */
-    public void setRate(byte rate) {
-        if(rate >= 0 && rate <= 5)
-            this.rate = rate;
-        else
-            throw new IllegalArgumentException("'rate' must be between 0 (incl.) and 5 (incl.).");
-    }
+    void setRate(byte rate);
 
     /**
      * @return l'accessibilité du piano
      */
-    public Accessibility getAccessibility() {
-        return accessibility;
-    }
+    Piano.Accessibility getAccessibility();
 
     /**
      * @param accessibility l'accessibilité du piano
      */
-    public void setAccessibility(Accessibility accessibility) {
-        this.accessibility = accessibility;
-    }
+    void setAccessibility(Piano.Accessibility accessibility);
 
     /**
      * @return le type de piano
      */
-    public Type getType() {
-        return type;
-    }
+    Piano.Type getType();
 
     /**
      * @param type le type de piano
      */
-    public void setType(Type type) {
-        this.type = type;
-    }
+    void setType(Piano.Type type);
 
     /**
      * @return l'URL vers l'image du piano
      */
-    public URL getImage() {
-        return image;
-    }
+    URL getImage();
 
     /**
      * @param image l'URL vers l'image du piano
      */
-    public void setImage(URL image) {
-        this.image = image;
-    }
+    void setImage(URL image);
 
     /**
      * @return l'ID du piano
      */
-    public int getId() {
-        return id;
-    }
+    int getId();
 
     /**
      * @param id l'ID du piano
      */
-    public void setId(int id) {
-        this.id = id;
-    }
+    void setId(int id);
+
+    /**
+     * @param longitude la longitude du point source
+     * @param latitude la latitude du point source
+     * @return la distance entre le point spécifié en paramètre et la position de ce piano, en kilomètre
+     */
+    double computeDistanceFrom(double longitude, double latitude);
 
     /**
      * Représente les différentes possibilités d'accès au piano
      */
-    public enum Accessibility {
+    enum Accessibility {
         /**
          * Piano accessible en libre service
          */
@@ -156,7 +115,7 @@ public class Piano {
     /**
      * Représente les différents types de piano
      */
-    public enum Type {
+    enum Type {
         /**
          * Piano électrique
          */
@@ -186,4 +145,5 @@ public class Piano {
             return code;
         }
     }
+
 }

@@ -35,4 +35,10 @@ public interface PianosDao {
      */
     void clearTable();
 
+    /**
+     * @param id un ID
+     * @return le piano dont l'ID est <i>id</i> si il existe, Optional.empty sinon
+     */
+    Optional<Piano> getPiano(int id);
+
 }
