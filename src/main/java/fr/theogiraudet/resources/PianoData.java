@@ -14,9 +14,6 @@ public class PianoData {
     private Piano.Type type;
     private URL image;
 
-    public PianoData() {
-    }
-
     /**
      * @return la latitude du piano
      */

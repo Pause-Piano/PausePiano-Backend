@@ -1,0 +1,62 @@
+Latitude,Longitude,Type,Accessibilité,Lien photo,Lieu,Présence Vérifié,Coordonnées vérifiées
+45.76071953532534,4.861128426987738,Droit,Libre,,"Gare de Lyon part dieu, Lyon ",Oui,Oui
+45.72474097504625,5.088534280696343,Droit,Libre,,"Gare de st éxupéry, Lyon",Oui,Oui
+48.844416750791915,2.374323654055585,Droit,Libre,,"Gare de Lyon, Paris",Non,Oui
+48.844416750791916,2.374323654055586,Queue,Libre,,"Gare de Lyon, Paris",Non,Oui
+48.84185415666778,2.366123134166807,Droit,Libre,,"Gare Austerlitz, Paris ",Non,Oui
+48.87637640294005,2.3253935855983876,Droit,Libre,,Gare Saint Lazare,Non,Oui
+48.88101863483321,2.3553995289139844,Droit,Libre,,"Gare du Nord, Paris",Non,Oui
+48.87650625288022,2.3589033135730832,Droit,Libre,,"Gare de l'Est, Paris",Non,Oui
+48.83862273018603,2.315888618085288,Droit,Libre,,"Gare Montparnasse, Paris",Non,Oui
+48.86185709080283,2.3470044714331326,Droit,Libre,,Centre Châtelet les Halles,Non,Oui
+48.84849322284552,2.282436400077933,Queue,Libre,,"Centre Commercial Beaugrenelle, Paris",Non,Oui
+48.8928428,2.2382885,Queue,Libre,,"La Défense, Paris",Non,Non
+48.8461357,2.3559859,Electrique,Limité,,"Université de la Sorbonne, Paris",Non,Non
+48.87730439362739,2.3068639847379386,Queue,Limité,,"Hôtel Le Collectionneur, Paris",Non,Oui
+43.30336217224394,5.380119563122673,Droit,Libre,,"Gare St Charles, Marseille",Non,Oui
+43.63293703664001,1.3740358701578526,Queue,Limité,,Aéroport de Toulouse-Blagnac ,Non,Oui
+50.636667096639,3.069938650696083,Electrique,Libre,,Gare Lille Flandre,Non,Oui
+50.636721492514994,3.0699815659776872,Electrique,Libre,,Gare Lille Europe,Non,Oui
+48.10379356577297,-1.6725859415029034,Droit,Libre,,Gare de Rennes,Non,Oui
+48.119705102585364,-1.7036522094005522,Droit,Limité,,Bâtiment B Rennes 2 Campus de Villejean,Non,Oui
+43.12851073302099,5.929425810894557,Droit,Libre,,Gare de Toulon,Non,Oui
+44.208278646704485,0.6208922686038667,Droit,Libre,,Gare d'Agen,Non,Oui
+43.45533070749032,5.317202610906154,Droit,Libre,,Gare Aix-en-Provence TGV,Non,Oui
+49.89070958039749,2.3081288688204933,Droit,Libre,,Gare Amiens,Non,Oui
+47.46486829942251,-0.556316490793011,Droit,Libre,,Gare Angers Saint-Laud,Non,Oui
+45.902050163057126,6.121117839830671,Droit,Libre ,,Gare Annecy,Non,Oui
+50.2870987019875,2.7813470823303432,Droit,Libre,,Gare Arras,Non,Oui
+43.94200276550917,4.805333197429612,Droit,Libre,,Gare Avignon Centre,Non,Oui
+43.922156124003,4.785900384061153,Droit,Libre,,Gare Avignon TGV,Non,Oui
+47.58595405275321,6.897427522705576,Droit,Libre,,Gare Belfort - Montbéliard TGV,Non,Oui
+44.825713019789085,-0.5571527942817553,Droit,Libre,,Gare Bordeaux St Jean ,Non,Oui
+48.387808301576506,-4.480156501780487,Droit,Libre,,"Gare, Brest",Non,Oui
+49.176550440460964,-0.34762924582456456,Droit,Libre,,"Gare, Caen",Non,Oui
+43.55410908822177,7.01952383974506,Droit,Libre,,"Gare, Cannes",Non,Oui
+45.57201061117577,5.919416048791421,Droit,Libre,,"Gare, Chambéry - Challes-les-Eaux",Non,Oui
+45.779029131004,3.100599084002871,Droit,Libre,,"Gare, Clermont-Ferrand",Non,Oui
+47.32364763154862,5.027177168719806,Droit,Libre,,"Gare, Dijon",Non,Oui
+45.19135716143851,5.713837541651877,Droit,Libre,,"Gare, Grenoble",Non,Oui
+47.28869409241413,-2.3890603275865083,Droit,Libre,,"Gare, La Baule-Escoublac",Non,Oui
+49.49303328779952,0.12470305449711189,Droit,Libre,,"Gare, Le Havre",Non,Oui
+47.995659270897995,0.1924103997186093,Droit,Libre,,"Gare, Le Mans",Non,Oui
+47.75496312922562,-3.366874920809339,Droit,Libre,,"Gare, Lorient Bretagne Sud",Non,Oui
+48.87046382847377,2.7827843191155774,Droit,Libre,,"Gare, Marne-la-Vallée Chessy",Non,Oui
+48.72600445543426,2.2614907585601074,Droit,Libre,,"Gare, Massy TGV",Non,Oui
+49.10976962768708,6.17722288900284,Droit,Libre,,"Gare, Metz Ville",Non,Oui
+43.73876766512506,7.418994926588943,Droit,Libre,,"Gare, Monaco",Non,Oui
+44.0144774110356,1.3412919937372039,Droit,Libre,,"Gare, Montauban Ville Bourbon",Non,Oui
+43.6049456880729,3.880770041594373,Droit,Libre,,"Gare, Montpellier Saint-Roch",Non,Oui
+43.59531804155099,3.9243031839233047,Droit,Libre,,"Gare, Montpellier Sud de France",Non,Oui
+47.74256305951163,7.342792182229848,Droit,Libre,,"Gare, Mulhouse",Non,Oui
+47.217706095050396,-1.5421137042963968,Droit,Libre,,"Gare, Nantes",Non,Oui
+43.70448483362705,7.2623731307241846,Droit,Libre,,"Gare, Nice",Non,Oui
+43.8326473803419,4.366148887597964,Droit,Libre,,"Gare, Nîmes Centre",Non,Oui
+48.83917212509757,2.3827307693961757,Droit,Libre,,"Gare, Paris Bercy Bourgogne - Pays d'Auvergne",Non,Oui
+46.583822521232406,0.3352155605271654,Droit,Libre,,"Gare, Poitiers",Non,Oui
+49.44905658177168,1.0941069405771873,Droit,Libre,,"Gare, Rouen Rive Droite",Non,Oui
+48.585269994968826,7.734602786576561,Droit,Libre,,"Gare, Strasbourg",Non,Oui
+43.12850290287672,5.929393625077868,Droit,Libre,,"Gare, Toulon",Non,Oui
+43.61140479159954,1.453704898100379,Droit,Libre,,"Gare, Toulouse Matabiau",Non,Oui
+44.99213351627874,4.978703257650328,Droit,Libre,,"Gare, Valence TGV Rhône-Alpes Sud",Non,Oui
+47.665254721026834,-2.7524456373816215,Droit,Libre,,"Gare, Vannes",Non,Oui

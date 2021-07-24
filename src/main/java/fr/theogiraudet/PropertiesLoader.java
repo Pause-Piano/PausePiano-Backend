@@ -8,16 +8,16 @@ import java.util.Properties;
  */
 public class PropertiesLoader {
 
-    private static PropertiesLoader INSTANCE;
+    private static PropertiesLoader instance;
 
     /**
      * @return une instance du loader
      * @throws IOException si aucun fichier 'pause_piano.properties' n'a été trouvé dans le répertoire courant
      */
     public static PropertiesLoader getInstance() throws IOException {
-        if(INSTANCE == null)
-            INSTANCE = new PropertiesLoader();
-        return INSTANCE;
+        if(instance == null)
+            instance = new PropertiesLoader();
+        return instance;
     }
 
     private final String dbUrl;

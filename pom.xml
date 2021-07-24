@@ -75,6 +75,12 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-jaxb</artifactId>
             <version>${jersey.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>org.glassfish.hk2.external</artifactId>
+                    <groupId>jakarta.inject</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -114,6 +120,14 @@
             <artifactId>gt-shapefile</artifactId>
             <version>${geotools.version}</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -1,5 +1,6 @@
 package fr.theogiraudet.dao;
 
+import fr.theogiraudet.filter.Parameter;
 import fr.theogiraudet.resources.Piano;
 import fr.theogiraudet.resources.PianoData;
 
@@ -12,9 +13,10 @@ import java.util.Optional;
 public interface PianosDao {
 
     /**
+     * @param parameters la liste des paramètres de la requête
      * @return la liste de tous les pianos, Optional.empty si une erreur est survenue lors de la récupération
      */
-    Optional<List<Piano>> getAllPianos();
+    Optional<List<Piano>> getAllPianos(List<Parameter> parameters);
 
     /**
      *

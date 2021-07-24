@@ -1,6 +1,7 @@
 package fr.theogiraudet.dao;
 
 import fr.theogiraudet.PropertiesLoader;
+import fr.theogiraudet.filter.Parameter;
 import fr.theogiraudet.resources.Piano;
 import fr.theogiraudet.resources.PianoData;
 import fr.theogiraudet.resources.PianoImpl;
@@ -12,9 +13,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Implémentation de PianosDao pour une base de données
@@ -25,7 +30,7 @@ public class PianosBddDao implements PianosDao {
 
     private Connection connection = null;
 
-    {
+    public PianosBddDao(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             tryConnection();
@@ -46,29 +51,36 @@ public class PianosBddDao implements PianosDao {
         }
     }
 
-    private void tryClose() {
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
+     * @param parameters la liste des paramètres de la requête
      * @return la liste de tous les pianos, Optional.empty si une erreur est survenue lors de la récupération
      */
     @Override
-    public Optional<List<Piano>> getAllPianos() {
+    public Optional<List<Piano>> getAllPianos(List<Parameter> parameters) {
+        parameters.sort(Comparator.comparingInt(Parameter::getPriority));
         try(final var statement = connection.createStatement()) {
-            final var query = "SELECT id, ST_X(coordinates) as x, ST_Y(coordinates) as y, type, accessibility, rate, image FROM piano_project.pianos;";
+            final var queryFragments = new LinkedList<String>();
+            final var functions = new LinkedList<Function<Stream<Piano>, Stream<Piano>>>();
+            final var generator = new FilterGenerator(queryFragments, functions);
+
+            generator.visitAll(parameters);
+
+            var queryFragment = String.join(" AND ", queryFragments);
+            if(!queryFragment.equals(""))
+                queryFragment = "WHERE " + queryFragment;
+
+            final var function = functions.stream().reduce(Function::andThen);
+
+            final var query = "SELECT id, ST_X(coordinates) as x, ST_Y(coordinates) as y, type, accessibility, rate, image " +
+                    "FROM piano_project.pianos " + queryFragment + ";" ;
             final var result = statement.executeQuery(query);
             final var list = new LinkedList<Piano>();
 
-            while(result.next()) {
+            while(result.next())
                 list.add(toPiano(result));
-            }
 
-            return Optional.of(list);
+            return Optional.of(function.map(f -> f.apply(list.stream()).collect(Collectors.toList())).orElse(list));
+
         } catch(SQLException | MalformedURLException e) {
             e.printStackTrace();
             return Optional.empty();
@@ -138,7 +150,7 @@ public class PianosBddDao implements PianosDao {
     public void clearTable() {
         final var query = "TRUNCATE TABLE piano_project.pianos";
         try(final var statement = connection.createStatement()) {
-            final var result = statement.executeUpdate(query);
+            statement.executeUpdate(query);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -166,14 +178,13 @@ public class PianosBddDao implements PianosDao {
     /**
      * @param result un ResultSet
      * @return le premier Piano du ResultSet passé en paramètre
-     * @throws SQLException
-     * @throws MalformedURLException
+     * @throws SQLException si il y a une erreur d'accès à la base de données
+     * @throws MalformedURLException si l'URL n'est pas valide
      */
     private Piano toPiano(ResultSet result) throws SQLException, MalformedURLException {
         final Piano piano = new PianoImpl();
         piano.setId(result.getInt("id"));
-        piano.setLatitude(result.getDouble("y"));
-        piano.setLongitude(result.getDouble("x"));
+        piano.setLocation(result.getDouble("x"), result.getDouble("y"));
         piano.setAccessibility(Piano.Accessibility.valueOf(result.getString("accessibility").toUpperCase()));
         piano.setType(Piano.Type.valueOf(result.getString("type").toUpperCase()));
         piano.setRate(result.getByte("rate"));
