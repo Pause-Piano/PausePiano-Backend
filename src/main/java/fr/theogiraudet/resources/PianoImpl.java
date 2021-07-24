@@ -50,6 +50,7 @@ public class PianoImpl implements Piano {
      */
     @Override
     public byte getRate() {
+        // nouvelle_note = ((note * nb_vote) + vote) / nb_vote + 1
         return rate;
     }
 

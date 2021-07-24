@@ -13,10 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -52,11 +49,12 @@ public class PianosBddDao implements PianosDao {
     }
 
     /**
-     * @param parameters la liste des paramètres de la requête
+     * @param parameters la liste des paramètres de la requête (non null)
      * @return la liste de tous les pianos, Optional.empty si une erreur est survenue lors de la récupération
      */
     @Override
     public Optional<List<Piano>> getAllPianos(List<Parameter> parameters) {
+        Objects.requireNonNull(parameters);
         parameters.sort(Comparator.comparingInt(Parameter::getPriority));
         try(final var statement = connection.createStatement()) {
             final var queryFragments = new LinkedList<String>();
@@ -88,11 +86,12 @@ public class PianosBddDao implements PianosDao {
     }
 
     /**
-     * @param piano un PianoData
+     * @param piano un PianoData (non null)
      * @return vrai si le piano existe déjà parmi les données, false sinon
      */
     @Override
     public Optional<Piano> exist(PianoData piano) {
+        Objects.requireNonNull(piano);
         final var query = "SELECT id, ST_X(coordinates) as x, ST_Y(coordinates) as y, type, accessibility, rate, image FROM piano_project.pianos WHERE ST_X(coordinates) = ? AND ST_Y(coordinates) = ?;";
         try(final var statement = connection.prepareStatement(query)) {
             statement.setDouble(1, piano.getLongitude());
@@ -107,11 +106,12 @@ public class PianosBddDao implements PianosDao {
 
     /**
      * Ajoute un nouveau piano aux données
-     * @param piano un nouveau piano
+     * @param piano un nouveau piano (non null)
      * @return l'instance du nouveau piano (différente de celle passée en paramètre)
      */
     @Override
     public Optional<Piano> addPiano(PianoData piano) {
+        Objects.requireNonNull(piano);
         final var query = "INSERT INTO piano_project.pianos (coordinates, type, accessibility, rate, image) VALUE (POINT(?, ?), ?, ?, ?, ?);";
         try(final var statement = connection.prepareStatement(query)) {
             statement.setDouble(1, piano.getLongitude());
@@ -176,12 +176,13 @@ public class PianosBddDao implements PianosDao {
 
 
     /**
-     * @param result un ResultSet
+     * @param result un ResultSet (non null)
      * @return le premier Piano du ResultSet passé en paramètre
      * @throws SQLException si il y a une erreur d'accès à la base de données
      * @throws MalformedURLException si l'URL n'est pas valide
      */
     private Piano toPiano(ResultSet result) throws SQLException, MalformedURLException {
+        Objects.requireNonNull(result);
         final Piano piano = new PianoImpl();
         piano.setId(result.getInt("id"));
         piano.setLocation(result.getDouble("x"), result.getDouble("y"));

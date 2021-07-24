@@ -4,6 +4,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Objects;
 
 @XmlRootElement(name = "piano")
 public class PianoData {
@@ -51,9 +52,10 @@ public class PianoData {
     }
 
     /**
-     * @param accessibility l'accessibilité du piano
+     * @param accessibility l'accessibilité du piano (non null)
      */
     public void setAccessibility(String accessibility) {
+        Objects.requireNonNull(accessibility);
         this.accessibility = Piano.Accessibility.valueOf(accessibility);
     }
 
@@ -65,9 +67,10 @@ public class PianoData {
     }
 
     /**
-     * @param type le type de piano
+     * @param type le type de piano (non null)
      */
     public void setType(String type) {
+        Objects.requireNonNull(type);
         this.type = Piano.Type.valueOf(type);
     }
 
@@ -79,9 +82,10 @@ public class PianoData {
     }
 
     /**
-     * @param image l'URL vers l'image du piano
+     * @param image l'URL vers l'image du piano (non null)
      */
     public void setImage(String image) throws MalformedURLException {
+        Objects.requireNonNull(image);
         this.image = new URL(image);
     }
 }

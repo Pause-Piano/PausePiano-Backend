@@ -15,6 +15,7 @@ import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -47,11 +48,12 @@ public class PianoResource {
 
     /**
      * Filtre la liste en fonction des paramètres de l'URI
-     *
-     * @param uriInfo les informations contenues dans l'URI
+     * @param uriInfo les informations contenues dans l'URI (non null)
      * @return la liste filtrée, Optional.empty si une erreur est survenue
      */
     public Optional<List<Parameter>> filter(UriInfo uriInfo) {
+        Objects.requireNonNull(uriInfo);
+
         final var params = uriInfo.getQueryParameters();
         final var parsedParam = Arrays.stream(ParameterRegister.values())
                 .filter(p -> params.containsKey(p.getId()))

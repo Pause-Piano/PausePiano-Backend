@@ -36,7 +36,12 @@ public class Main {
         }
     }
 
+    /**
+     * @param accessibility l'accessibilité dans la syntaxe du CSV (non null)
+     * @return la valeur parsée
+     */
     private static String convertAccessibility(String accessibility) {
+        Objects.requireNonNull(accessibility);
         switch(accessibility.toLowerCase().trim()) {
             case "libre": return "SELF_SERVICE";
             case "limité": return "CONDITIONALLY";
@@ -45,7 +50,12 @@ public class Main {
         }
     }
 
+    /**
+     * @param type le type dans la syntaxe du CSV (non null)
+     * @return la valeur parsée
+     */
     private static String convertType(String type) {
+        Objects.requireNonNull(type);
         switch(type.toLowerCase()) {
             case "droit": return "UPRIGHT";
             case "queue": return "GRAND";
