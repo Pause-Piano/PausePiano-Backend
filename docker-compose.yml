@@ -1,0 +1,16 @@
+#docker-compose -p pause_piano up -d
+version: "3.9"
+services:
+  backend:
+    image: backend
+    depends_on:
+      - database
+    ports: 
+      - "8080:8080"
+  database:
+    image: mysql/mysql-server
+    ports: 
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_ROOT_HOST: "%"

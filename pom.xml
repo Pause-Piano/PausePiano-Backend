@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>PianoProject</artifactId>
+    <artifactId>PausePiano</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +16,62 @@
         <jersey.version>2.29</jersey.version>
         <geotools.version>26-SNAPSHOT</geotools.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>dev</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <build.profile.id>prod</build.profile.id>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <filters>
+            <filter>src/main/resources/${build.profile.id}/pause_piano.properties</filter>
+        </filters>
+
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>**/dev/**</exclude>
+                    <exclude>**/prod/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -46,6 +103,18 @@
     </repositories>
 
     <dependencies>
+
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2-servlet-initializer-v2</artifactId>
+            <version>2.1.2</version>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>

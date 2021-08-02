@@ -70,6 +70,8 @@ public class PianoResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response postPiano(PianoData piano) {
+        if(piano == null)
+            return Response.status(Response.Status.BAD_REQUEST).build();
         final var existingPiano = dao.exist(piano);
         if (existingPiano.isPresent())
             return Response.status(Response.Status.CONFLICT)

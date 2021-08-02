@@ -37,4 +37,14 @@ public interface Visitor {
      */
     void visit(LocationSorter parameter);
 
+    /**
+     * @param parameter le ReverseFilter à visiter (non null)
+     */
+    void visit(ReverseSorter parameter);
+
+    /**
+     * @param parameter le RateFilter à visiter (non null)
+     */
+    void visit(RateSorter parameter);
+
 }

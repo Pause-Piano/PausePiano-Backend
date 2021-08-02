@@ -12,7 +12,9 @@ public enum ParameterRegister {
     TYPE("type", TypeFilter::new),
     LIMIT("limit", LimitFilter::new),
     OFFSET("offset", OffsetFilter::new),
-    LOCATION("location", LocationSorter::new);
+    LOCATION("location", LocationSorter::new),
+    RATE("rate", RateSorter::new),
+    REVERSE("reverse", ReverseSorter::new);
 
     private final String id;
     private final Function<List<String>, Parameter> constructor;

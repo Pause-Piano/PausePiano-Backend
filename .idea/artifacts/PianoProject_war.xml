@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="PianoProject:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/PianoProject_war</output-path>
-    <root id="archive" name="PianoProject_war.war">
-      <element id="artifact" artifact-name="PianoProject:war exploded" />
-    </root>
-  </artifact>
-</component>

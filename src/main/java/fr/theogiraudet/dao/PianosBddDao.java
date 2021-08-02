@@ -192,4 +192,22 @@ public class PianosBddDao implements PianosDao {
         piano.setImage(new URL(result.getString("image")));
         return piano;
     }
+
+    public void init() {
+        final var query = "CREATE DATABASE piano_project;";
+        final var query2 = "CREATE TABLE piano_project.pianos (\n" +
+                "    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n" +
+                "    coordinates POINT,\n" +
+                "    type ENUM('electric', 'grand', 'upright'),\n" +
+                "    accessibility ENUM('self_service', 'secret', 'conditionally'),\n" +
+                "    rate TINYINT,\n" +
+                "    image VARCHAR(2083)\n" +
+                "    );";
+        try(final var statement = connection.createStatement()) {
+            statement.executeUpdate(query);
+            statement.executeUpdate(query2);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

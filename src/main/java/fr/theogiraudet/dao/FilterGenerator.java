@@ -3,9 +3,7 @@ package fr.theogiraudet.dao;
 import fr.theogiraudet.filter.*;
 import fr.theogiraudet.resources.Piano;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -93,4 +91,26 @@ public class FilterGenerator implements Visitor {
         functions.add(s -> s.sorted(Comparator.comparingDouble(p -> p.computeDistanceFrom(parameter.getLongitude(), parameter.getLatitude()))));
     }
 
+    /**
+     * @param parameter le ReverseFilter à visiter (non null)
+     */
+    @Override
+    public void visit(ReverseSorter parameter) {
+        Objects.requireNonNull(parameter);
+        if(parameter.isReverse())
+            functions.add(s -> {
+                var list = s.collect(Collectors.toCollection(LinkedList::new));
+                Collections.reverse(list);
+                return list.stream();
+            });
+    }
+
+    /**
+     * @param parameter le RateFilter à visiter (non null)
+     */
+    @Override
+    public void visit(RateSorter parameter) {
+        Objects.requireNonNull(parameter);
+        functions.add(s -> s.sorted(Comparator.comparingInt(Piano::getRate)));
+    }
 }

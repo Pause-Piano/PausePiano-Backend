@@ -7,4 +7,5 @@ module Pause.Piano.Backend {
     requires opencsv;
     requires org.geotools.referencing;
     requires mysql.connector.java;
+    requires io.swagger.v3.jaxrs2;
 }

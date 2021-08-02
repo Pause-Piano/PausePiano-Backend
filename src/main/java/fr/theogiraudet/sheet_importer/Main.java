@@ -16,6 +16,7 @@ public class Main {
         final var dao = new PianosBddDao();
         Objects.requireNonNull(stream);
 
+        dao.init();
         try (final var reader = new CSVReader(new InputStreamReader(stream))) {
             String[] line;
             while ((line = reader.readNext()) != null) {
