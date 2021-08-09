@@ -6,12 +6,9 @@ import fr.theogiraudet.filter.Parameter;
 import fr.theogiraudet.filter.ParameterRegister;
 import fr.theogiraudet.resources.Piano;
 import fr.theogiraudet.resources.PianoData;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.*;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +16,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
+@ApplicationPath("/")
 @Path("/pianos")
 public class PianoResource {
 
@@ -28,7 +25,7 @@ public class PianoResource {
     @Context
     private UriInfo uriInfo;
 
-    public PianoResource(){
+    public PianoResource() {
         dao = new PianosBddDao();
     }
 
@@ -48,6 +45,7 @@ public class PianoResource {
 
     /**
      * Filtre la liste en fonction des paramètres de l'URI
+     *
      * @param uriInfo les informations contenues dans l'URI (non null)
      * @return la liste filtrée, Optional.empty si une erreur est survenue
      */
@@ -70,7 +68,7 @@ public class PianoResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response postPiano(PianoData piano) {
-        if(piano == null)
+        if (piano == null)
             return Response.status(Response.Status.BAD_REQUEST).build();
         final var existingPiano = dao.exist(piano);
         if (existingPiano.isPresent())

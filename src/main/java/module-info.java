@@ -1,8 +1,8 @@
 module Pause.Piano.Backend {
     requires java.sql;
     requires jakarta.xml.bind;
-    requires java.ws.rs;
     requires jakarta.activation;
+    requires jakarta.ws.rs;
     requires java.desktop;
     requires opencsv;
     requires org.geotools.referencing;

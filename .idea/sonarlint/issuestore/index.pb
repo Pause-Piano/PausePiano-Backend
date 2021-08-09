@@ -16,5 +16,3 @@ b
 2src/main/java/fr/theogiraudet/utils/EnumUtils.java,3\1\31a6eef14b1a2546a1ee20df45a5801921cb9fd3
 b
 2src/main/java/fr/theogiraudet/resources/Piano.java,9\e\9ea633b8cb75d3b9ca6bae768a5df669532b9456
-C
-web/WEB-INF/web.xml,c\d\cdcc12da5c4054f6995aab32914d7e0243194c05
