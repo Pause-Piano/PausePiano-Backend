@@ -7,7 +7,10 @@ import fr.theogiraudet.filter.ParameterRegister;
 import fr.theogiraudet.resources.Piano;
 import fr.theogiraudet.resources.PianoData;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
 
 import java.net.URI;
 import java.util.Arrays;
@@ -16,7 +19,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@ApplicationPath("/")
 @Path("/pianos")
 public class PianoResource {
 
